@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--java类 ===映射===> 数据库表-->
+<!--
+    此映射文件的命名规范是 类名.hbm.xml ,
+    可以不按照命名规范命名，只要hibernate.cfg.xml文件的mapping标签的resource属性配置的和此文件名一样就可以
+    亲测可行 后缀改了都可以执行
+-->
+
+<hibernate-mapping package="test.pojo">
+    <!--配置类和表的映射,类的包名要写全-->
+    <class name="User" table="user_info">
+
+        <!--表的主键和类属性的映射-->
+        <id name="id" column="id">
+            <!--
+            native:代表使用底层数据库方言以自增的方式生成主键
+                       比如mysql是autoincrement
+                       oracle是sequence
+            assigned:代表主键由java程序控制,即用户自己为主键赋值
+            -->
+            <generator class="native"/>
+        </id>
+
+        <!--常规列和属性映射配置-->
+        <!--name: 类的属性名-->
+        <!--column: 表的列名-->
+        <!--type: 注意，这里的类型是指的hibernate自定义的类型或java中的类型,类型映射看.png图片-->
+        <!--hibernate类型与java和数据库类型的映射在说明文件中-->
+        <property name="name" column="name" type="string"/>
+
+        <property name="birthday" column="birth" type="date"/>
+
+    </class>
+</hibernate-mapping>
