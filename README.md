@@ -1,0 +1,3 @@
+# study-hibernate-intermediate
+hibernate中级
+此库主要存放hibernate学习期间的缓存管理学习代码
